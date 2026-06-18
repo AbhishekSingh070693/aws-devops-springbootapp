@@ -1,20 +1,71 @@
-# springboot-aws-deploy
+# AWS DevOps Spring Boot Application Deployment using ECS Fargate
 
-This is a sample microservice to deploy it on AWS ECS.
+## Project Overview
 
-To build automated AWS CodePipeline and deploy microservice to AWS ECS, follow tutorial as shown in video :
+This project demonstrates an end-to-end CI/CD pipeline for deploying a Spring Boot application using AWS services.
 
+The deployment workflow is:
 
+GitHub → CodePipeline → CodeBuild → Amazon ECR → Amazon ECS Fargate
 
-Health Check command for AWS Task definition : 
-```
-CMD-SHELL,curl -f http://localhost:8080/actuator/health || exit 1
-```
+Whenever code is pushed to GitHub, the pipeline automatically:
 
+- Downloads source code
+- Builds the application using Maven
+- Creates a Docker image
+- Pushes the image to Amazon ECR
+- Deploys the latest image to Amazon ECS Fargate
 
-Prerequisite :
-1. AWS acconunt.
-2. Git and docker installed on the machine.
-3. Docker should be started before building docker image.
-4. And your favourite code editor 
+## Technologies Used
 
+- Java 17
+- Spring Boot
+- Maven
+- Docker
+- GitHub
+- AWS CodeBuild
+- AWS CodePipeline
+- Amazon ECR
+- Amazon ECS Fargate
+- CloudWatch Logs
+
+## Architecture
+
+GitHub
+    ↓
+CodePipeline
+    ↓
+CodeBuild
+    ↓
+Amazon ECR
+    ↓
+Amazon ECS Fargate
+    ↓
+Spring Boot Application
+
+## Repository Structure
+
+aws-devops-springbootapp
+│
+├── src
+├── src
+│   ├── main
+│   └── test
+│
+├── screenshots
+│   ├── 01-source-code
+│   ├── 02-github
+│   ├── 03-ecr
+│   ├── 04-codebuild
+│   ├── 05-ecs-cluster
+│   ├── 06-task-definition
+│   ├── 07-service
+│   ├── 08-codepipeline
+│   ├── 09-deployment
+│   ├── 10-output
+│   └── 11-troubleshooting
+│
+├── Dockerfile
+├── buildspec.yml
+├── pom.xml
+└── README.md
