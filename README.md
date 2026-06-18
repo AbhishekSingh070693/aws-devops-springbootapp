@@ -69,3 +69,47 @@ aws-devops-springbootapp
 ├── buildspec.yml
 ├── pom.xml
 └── README.md
+
+## Step 1 - Source Code Preparation
+
+The Spring Boot application source code was prepared before creating the CI/CD pipeline.
+
+### Project Structure
+
+![Project Structure](screenshots/01-source-code/springboot-project-structure.png)
+
+### Maven Configuration
+
+The pom.xml file contains all required dependencies for the Spring Boot application.
+
+![POM File](screenshots/01-source-code/pom.xml.png)
+
+### Dockerfile
+
+The Dockerfile is used by AWS CodeBuild to create the Docker image that will later be pushed to Amazon ECR.
+
+![Dockerfile](screenshots/01-source-code/dockerfile.png)
+
+### Home Controller
+
+A HomeController was added to handle requests to the root URL (/). Without this controller, the application displayed a 404 Whitelabel Error Page.
+
+```java
+@RestController
+public class HomeController {
+
+    @GetMapping("/")
+    public String home() {
+        return "Welcome to Spring Boot AWS Deployment!";
+    }
+}
+```
+
+![Home Controller](screenshots/01-source-code/home-controller.png)
+
+
+## Step 2 - GitHub Repository Setup
+
+The source code was pushed to GitHub and used as the source stage for AWS CodePipeline.
+
+![GitHub Repository](screenshots/02-github/Repository-forked.png)
