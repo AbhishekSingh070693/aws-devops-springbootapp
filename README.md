@@ -128,17 +128,17 @@ The ECR repository was created to store Spring Boot Docker images.
 
 The ECR repository URI was updated in the buildspec.yml file to ensure Docker images are pushed to the correct repository.
 
-![ECR URI Update](screenshots/03-ecr/Updating URI-to-buildspec.yml-1.png)
+![ECR URI Update](screenshots/03-ecr/ecr-uri-update-1.png)
 
-![ECR URI Update](screenshots/03-ecr/Updating URI-to-buildspec.yml-2.png)
+![ECR URI Update](screenshots/03-ecr/ecr-uri-update-2.png)
 
 ### Docker Push Commands
 
 The buildspec.yml file was updated with Docker push commands.
 
-![Docker Push Command](screenshots/03-ecr/Updating-Push command on Buildspec-1.png)
+![Docker Push Command](screenshots/03-ecr/docker-push-command-1.png)
 
-![Docker Push Command](screenshots/03-ecr/Updating-Push command on Buildspec-2.png)
+![Docker Push Command](screenshots/03-ecr/docker-push-command-2.png)
 
 ## Step 4 - AWS CodeBuild Configuration
 
@@ -154,13 +154,13 @@ The CodeBuild project was configured with GitHub as the source provider.
 
 During the first build attempt, an access permission issue was encountered.
 
-![Build Failure](screenshots/04-codebuild/codebuild fail due to Access denied.png)
+![Build Failure](screenshots/04-codebuild/codebuild-access-denied.png)
 
 ### IAM Permission Fix
 
 Additional permissions were granted to the CodeBuild IAM role.
 
-![Permission Fix](screenshots/11-troubleshooting/Adding permission to Codebuild role.png)
+![Permission Fix](screenshots/11-troubleshooting/codebuild-role-permission.png)
 
 ### Successful Build
 
@@ -200,7 +200,7 @@ After updating permissions and configuration, the build completed successfully.
 
 A manual retry was performed after fixing configuration issues.
 
-![Retry Build](screenshots/04-codebuild/Retry build.png)
+![Retry Build](screenshots/04-codebuild/retry-build.png)
 
 ## Step 5 - Amazon ECS Cluster Creation
 
@@ -250,7 +250,7 @@ The ECS Service was created to manage and maintain running tasks.
 
 The service deployment process was initiated and monitored.
 
-![Deployment Progress](screenshots/07-service/ecs-service-deployment in progress.png)
+![Deployment Progress](screenshots/07-service/ecs-service-deployment-progress.png)
 
 ## Step 8 - AWS CodePipeline Creation
 
@@ -290,13 +290,13 @@ After successful pipeline execution, the application was automatically deployed 
 
 ### CodePipeline Deployment Success
 
-![Pipeline Success](screenshots/09-deployment/code-pipeline deployment successfull.png)
+![Pipeline Success](screenshots/09-deployment/codepipeline-deployment-success.png)
 
 ### Health Endpoint Verification
 
 The Spring Boot Actuator endpoint confirmed the application was healthy.
 
-![Health Check](screenshots/09-deployment/Actutor-health status up.png)
+![Health Check](screenshots/09-deployment/actuator-health-status-up.png)
 
 Response:
 
@@ -325,7 +325,7 @@ Throughout the project several issues were encountered and successfully resolved
 
 CodeBuild initially failed because of insufficient IAM permissions.
 
-![Access Denied](screenshots/11-troubleshooting/codebuild fail due to Access denied.png)
+![Access Denied](screenshots/11-troubleshooting/codebuild-access-denied.png)
 
 ### Issue 2 - IAM Role Permission Updates
 
@@ -365,13 +365,13 @@ Resolution:
 - Added HomeController.java
 - Redeployed through CodePipeline
 
-![Controller Fix](screenshots/11-troubleshooting/Home-controller_pushed to github.png)
+![Controller Fix](screenshots/11-troubleshooting/home-controller-pushed.png)
 
 ### CloudWatch Log Analysis
 
 Application logs were reviewed through CloudWatch.
 
-![CloudWatch Logs](screenshots/11-troubleshooting/cloudwatch container logs.png)
+![CloudWatch Logs](screenshots/11-troubleshooting/cloudwatch-container-logs.png)
 
 
 ## Conclusion
