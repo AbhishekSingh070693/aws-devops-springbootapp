@@ -210,9 +210,9 @@ Amazon ECS Fargate was selected as the container orchestration platform.
 
 An ECS cluster was created using the Fargate launch type.
 
-![Cluster Creation](screenshots/05-ecs-cluster/ECS-cluster creation-1.png)
+![Cluster Creation](screenshots/05-ecs-cluster/ECS-cluster-creation-1.png)
 
-![Cluster Creation](screenshots/05-ecs-cluster/ECS-cluster creation-2.png)
+![Cluster Creation](screenshots/05-ecs-cluster/ECS-cluster-creation-2.png)
 
 ## Step 6 - ECS Task Definition Creation
 
